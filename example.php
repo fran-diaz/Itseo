@@ -19,5 +19,13 @@ autoload(getcwd().DIRECTORY_SEPARATOR."itseo");
 $itseo = new Itseo("http://www.brainhardware.es/");
 $itseo->makeTest('Dmoz');
 $itseo->makeTest('Favicon');
+$itseo->makeTest('Flash');
+$itseo->makeTest('Frames');
+$itseo->makeTest('Headings');
+$itseo->makeTest('Img');
+$itseo->makeTest('Links');
+$itseo->makeTest('MetaTitle');
+$itseo->makeTest('MetaDescription');
+$itseo->makeTest('MetaKeywords');
 
 var_dump($itseo->tests);

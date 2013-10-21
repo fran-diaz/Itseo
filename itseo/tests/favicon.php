@@ -2,7 +2,6 @@
 namespace itseo\test;
 
 use itseo\TestInterface;
-use itseo\Itseo;
 
 /**
  * This is a test that checks if the favicon of the target 
