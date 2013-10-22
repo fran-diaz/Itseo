@@ -5,7 +5,7 @@ use itseo\TestInterface;
 
 /**
  * This is a test that checks if meta title is present, 
- * size is correct and is same as title DOM's element.
+ * size is correct and is same as title's DOM element.
  *
  * @author Fran Díaz <fran.diaz.gonzalez@gmail.com>
  * @access public

@@ -27,6 +27,11 @@ class Itseo {
         $this->page_DOM = $this->extractDOM($this->page_HTML);
     }
 
+    public static function extractDomain($url) 
+    {
+        return parse_url($url, PHP_URL_HOST);
+    }
+    
     public static function createBaseUrl($url)
     {
         $tmp_domain = self::extractDomain($url);
@@ -34,11 +39,6 @@ class Itseo {
             $tmp_domain = "www." . $tmp_domain;
         }
         return "http://" . $tmp_domain . "/";
-    }
-
-    public static function extractDomain($url) 
-    {
-        return parse_url($url, PHP_URL_HOST);
     }
     
     public static function extractDOM($page){

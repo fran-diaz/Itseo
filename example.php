@@ -27,5 +27,10 @@ $itseo->makeTest('Links');
 $itseo->makeTest('MetaTitle');
 $itseo->makeTest('MetaDescription');
 $itseo->makeTest('MetaKeywords');
-
+$itseo->makeTest('Www');
+$itseo->makeTest('UrlLength');
+$itseo->makeTest('Title');
+$itseo->makeTest('TextRatio');
+$itseo->makeTest('Sitemap');
+$itseo->makeTest('Robots');
 var_dump($itseo->tests);
