@@ -46,9 +46,9 @@ class Links implements TestInterface{
         }
 
         if(count($this->good_links) >= 1 && count($this->bad_links) == 0 && count($this->warn_links) == 0){
-            $score += 2;
+            $this->score += 2;
         }elseif(count($this->good_links) >= 1 && count($this->bad_links) == 0){
-            $score += 1;
+            $this->score += 1;
         }
         
         return array("name" => "links","score" => $this->score,"total_score" => self::TOTAL_SCORE,"result" => $this->result);
