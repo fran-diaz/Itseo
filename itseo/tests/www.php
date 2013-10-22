@@ -5,7 +5,7 @@ use itseo\TestInterface;
 
 /**
  * This is a test that checks if www domain and 
- * non-www domain links to the same target page. 
+ * non-www domain redirected to the same target page. 
  *
  * @author Fran Díaz <fran.diaz.gonzalez@gmail.com>
  * @access public
