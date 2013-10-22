@@ -40,7 +40,7 @@ class MetaKeywords implements TestInterface{
             $this->result .='<p><span class="result info">INFO</span>No meta keywords detected, don\'t waste your time in this because aren\'t longer used </p>'."\n";
         }
         
-        return array("name" => "metadescription","score" => $this->score,"total_score" => self::TOTAL_SCORE,"result" => $this->result);
+        return array("name" => "metakeywords","score" => $this->score,"total_score" => self::TOTAL_SCORE,"result" => $this->result);
     }
     
     public function prepareTest()
