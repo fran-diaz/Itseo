@@ -15,14 +15,13 @@ class TextRatio implements TestInterface{
     const TOTAL_SCORE = 1;
     public $score = 0;
     public $result = "";
-    public $type = "external_test";
+    public $type = "internal_test";
     private $text_content = "";
     
     public function test($target)
     {
-        
-        $page = file_get_contents($target);
-        $DOM = Itseo::extractDOM($page);
+        $DOM = $target;
+        $page = $DOM->saveHTML();
         $body_elements = $DOM->getElementsByTagName('body');
         $tags = $body_elements->item(0)->childNodes;
         foreach($tags as $tag){
