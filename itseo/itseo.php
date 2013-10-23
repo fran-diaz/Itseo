@@ -20,11 +20,19 @@ class Itseo {
     
     public function __construct($target)
     {
-        $this->target = $target;
-        $this->domain = self::extractDomain($target);
-        $this->base_url = self::createBaseUrl($target);
-        $this->page_HTML = file_get_contents($target);
-        $this->page_DOM = $this->extractDOM($this->page_HTML);
+        if(parse_url($target,PHP_URL_SCHEME) === null){
+            $this->target = "HTML code";
+            $this->domain = "HTML code";
+            $this->base_url = "HTML code";
+            $this->page_HTML = $target;
+            $this->page_DOM = $this->extractDOM($this->page_HTML);
+        }else{
+            $this->target = $target;
+            $this->domain = self::extractDomain($target);
+            $this->base_url = self::createBaseUrl($target);
+            $this->page_HTML = file_get_contents($target);
+            $this->page_DOM = $this->extractDOM($this->page_HTML);
+        }
     }
 
     public static function extractDomain($url) 
@@ -66,9 +74,14 @@ class Itseo {
             $test_ob_name = 'itseo\\test\\'.$test;
             $test_ob = new $test_ob_name;
             if($test_ob->type == "internal_test"){
-                $result = $test_ob->test($this->page_DOM,$this->domain);
+                $result = $test_ob->test($this->page_DOM);
             }else{
-                $result = $test_ob->test($this->target,$this->domain);
+                if($this->target != "HTML code"){
+                    $result = $test_ob->test($this->target,$this->domain);
+                }else{
+                    trigger_error("Selected test not supports current target.",E_USER_NOTICE);
+                    return false;
+                }
             }
             
             $this->tests[$test]['name'] = $result['name'];

@@ -1,5 +1,5 @@
 <?php
-use itseo\itseo;
+use itseo\Itseo;
 
 function autoload($dir){
     $files = scandir($dir);
@@ -33,4 +33,5 @@ $itseo->makeTest('Title');
 $itseo->makeTest('TextRatio');
 $itseo->makeTest('Sitemap');
 $itseo->makeTest('Robots');
+
 var_dump($itseo->tests);
