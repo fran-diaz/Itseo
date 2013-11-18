@@ -11,6 +11,7 @@ use itseo\test;
  * @version 0.5
  * @access public
  * @copyright (c) 2013, Fran Diaz
+ * 
  */
 class Itseo {
 
@@ -30,7 +31,9 @@ class Itseo {
             $this->target = $target;
             $this->domain = self::extractDomain($target);
             $this->base_url = self::createBaseUrl($target);
-            $this->page_HTML = file_get_contents($target);
+            $aux = file_get_contents($target);
+            $this->page_HTML = mb_convert_encoding($aux, 'UTF-8',mb_detect_encoding($aux, mb_detect_order(), true));
+            unset($aux);
             $this->page_DOM = $this->extractDOM($this->page_HTML);
         }
     }
@@ -79,6 +82,7 @@ class Itseo {
                 if($this->target != "HTML code"){
                     $result = $test_ob->test($this->target,$this->domain);
                 }else{
+                    unset($this->tests[$test]);
                     trigger_error("Selected test not supports current target.",E_USER_NOTICE);
                     return false;
                 }

@@ -9,13 +9,15 @@ use itseo\TestInterface;
  *
  * @author Fran Díaz <fran.diaz.gonzalez@gmail.com>
  * @access public
+ * @todo Implement tests that list insite links and 
+ * offsite links.
  */
 class Links implements TestInterface{
     const TOTAL_SCORE = 2;
     public $score = 0;
     public $result = "";
     public $type = "internal_test";
-    private $good_links, $bad_links, $warn_links = array();
+    private $good_links, $bad_links, $warn_links, $inpage_links, $offpage_links = array();
     
     public function test($target)
     {
@@ -23,6 +25,7 @@ class Links implements TestInterface{
         $links = $DOM->getElementsByTagName('a');
         foreach ($links as $link) {
             if($link->getAttribute("href") != ""){
+													 
                 if($link->hasChildNodes()){
                     $childs = $link->childNodes;
                     if($childs->item(0)->nodeName == "#text"){$this->good_links[] = $link->getAttribute("href");}
