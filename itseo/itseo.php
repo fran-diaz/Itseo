@@ -31,8 +31,9 @@ class Itseo {
             $this->target = $target;
             $this->domain = self::extractDomain($target);
             $this->base_url = self::createBaseUrl($target);
-            $aux = file_get_contents($target);
-            $this->page_HTML = mb_convert_encoding($aux, 'UTF-8',mb_detect_encoding($aux, mb_detect_order(), true));
+            $opts = array('http' => array('header' => 'Accept-Charset: utf-8, *;q=0'));
+            $context = stream_context_create($opts);
+            $this->page_HTML = utf8_decode(file_get_contents($target ,false,$context));
             unset($aux);
             $this->page_DOM = $this->extractDOM($this->page_HTML);
         }
