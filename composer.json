@@ -1,6 +1,7 @@
 {
     "name": "fran-diaz/itseo",
     "description": "Includes methods that extract SEO info from url or HTML code",
+    "version": "0.3.0",
     "type": "library",
     "keywords": ["it","seo","crawler"],
     "homepage": "https://github.com/fran-diaz/Itseo",
