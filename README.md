@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/fran-diaz/Itseo.png?branch=master)](https://travis-ci.org/fran-diaz/Itseo)
+[![Latest Stable Version](https://poser.pugx.org/fran-diaz/itseo/v/stable.png)](https://packagist.org/packages/fran-diaz/itseo)
+[![Total Downloads](https://poser.pugx.org/fran-diaz/itseo/downloads.png)](https://packagist.org/packages/fran-diaz/itseo)
 
 Itseo
 =====
