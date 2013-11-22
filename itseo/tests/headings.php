@@ -73,5 +73,4 @@ class Headings implements TestInterface{
         
     }
 }
-
 ?>

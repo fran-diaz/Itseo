@@ -68,31 +68,34 @@ class Itseo {
         }
         
         $test_ob_name = 'itseo\\test\\'.$test;
-        $test_ob = new $test_ob_name;
-        $test_ob->prepareTest();
+        if(!class_exists($test_ob_name))throw new \Exception( "Class '$test_ob_name' not exist!" );
+        else{
+            $test_ob = new $test_ob_name;
+            $test_ob->prepareTest();
+        }
     }
     
     public function makeTest($test)
     {
         if(!isset($this->tests[$test])){$this->prepareTest($test);}
-            $test_ob_name = 'itseo\\test\\'.$test;
-            $test_ob = new $test_ob_name;
-            if($test_ob->type == "internal_test"){
-                $result = $test_ob->test($this->page_DOM);
+        $test_ob_name = 'itseo\\test\\'.$test;
+        $test_ob = new $test_ob_name;
+        if($test_ob->type == "internal_test"){
+            $result = $test_ob->test($this->page_DOM);
+        }else{
+            if($this->target != "HTML code"){
+                $result = $test_ob->test($this->target,$this->domain);
             }else{
-                if($this->target != "HTML code"){
-                    $result = $test_ob->test($this->target,$this->domain);
-                }else{
-                    unset($this->tests[$test]);
-                    trigger_error("Selected test not supports current target.",E_USER_NOTICE);
-                    return false;
-                }
+                unset($this->tests[$test]);
+                trigger_error("Selected test not supports current target.",E_USER_NOTICE);
+                return false;
             }
-            
-            $this->tests[$test]['name'] = $result['name'];
-            $this->tests[$test]['title'] = $result['name'];
-            $this->tests[$test]['score'] = $result['score'];
-            $this->tests[$test]['total_score'] = $result['total_score'];
-            $this->tests[$test]['result'] = $result['result'];
+        }
+
+        $this->tests[$test]['name'] = $result['name'];
+        $this->tests[$test]['title'] = $result['name'];
+        $this->tests[$test]['score'] = $result['score'];
+        $this->tests[$test]['total_score'] = $result['total_score'];
+        $this->tests[$test]['result'] = $result['result'];
     }
 }
