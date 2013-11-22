@@ -29,7 +29,7 @@ class MetaDescriptionTest extends \PHPUnit_Framework_TestCase
         
         $result = $this->object->extractMetaDescription($dummy_dom);
         
-        $this->asserts
+        $this->assertsStringMatchesFormat("%a",$result);
     }
 
     /**
@@ -46,7 +46,7 @@ class MetaDescriptionTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey("score", $result);
         $this->assertArrayHasKey("total_score", $result);
         $this->assertArrayHasKey("result", $result);
-        $this->assertEquals("favicon", $result['name']);
+        $this->assertEquals("metadescription", $result['name']);
     }
 
     /**
