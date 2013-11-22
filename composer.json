@@ -1,0 +1,23 @@
+{
+    "name": "fran-diaz/Itseo",
+    "description": "Includes methods that extract SEO info from url or HTML code",
+    "type": "library",
+    "keywords": ["it","seo","crawler"],
+    "homepage": "https://github.com/fran-diaz/Itseo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fran Díaz",
+            "email": "fran.diaz.gonzalez@gmail.com",
+            "homepage": "http://www.brainhardware.es",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "fran.diaz.gonzalez@gmail.com",
+        "source": "https://github.com/fran-diaz/Itseo"
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
