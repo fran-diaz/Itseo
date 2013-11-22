@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/fran-diaz/Itseo.png)](https://travis-ci.org/fran-diaz/Itseo)
+[![Build Status](https://travis-ci.org/fran-diaz/Itseo.png)](https://travis-ci.org/fran-diaz/Itseo)[![Build Status](https://travis-ci.org/fran-diaz/Itseo.png?branch=master)](https://travis-ci.org/fran-diaz/Itseo)
 
 Itseo
 =====
