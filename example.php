@@ -16,7 +16,7 @@ function autoload($dir){
 
 autoload(getcwd().DIRECTORY_SEPARATOR."itseo");
 
-$itseo = new Itseo("http://www.brainhardware.es/");
+$itseo = new Itseo("http://www.google.es/");
 $itseo->makeTest('Dmoz');
 $itseo->makeTest('Favicon');
 $itseo->makeTest('Flash');

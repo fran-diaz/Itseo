@@ -43,10 +43,10 @@ class TextRatio implements TestInterface{
         }else{
             $this->result .='<p><span class="result warn">WARN</span>Text / HTML ratio in your website is below 25%.</p><pre>'.$ratio.'% ratio</pre><code>'.$this->text_content.'</code>'."\n";
         }
-        if($num_words >= 300 ){
-            $this->result .='<p><span class="result ok">OK</span>Number of words in your text is above 300 words.</p><pre>'.$num_words.' words</pre><code>'.$this->p_content.'</code>'."\n";$this->score += 1;
+        if(count($num_words) >= 300 ){
+            $this->result .='<p><span class="result ok">OK</span>Number of words in your text is above 300 words.</p><pre>'.count($num_words).' words</pre><code>'.$this->p_content.'</code>'."\n";$this->score += 1;
         }else{
-            $this->result .='<p><span class="result warn">WARN</span>Number of words in your text is below 300 words.</p><pre>'.$num_words.' words</pre><code>'.$this->p_content.'</code>'."\n";
+            $this->result .='<p><span class="result warn">WARN</span>Number of words in your text is below 300 words.</p><pre>'.count($num_words).' words</pre><code>'.$this->p_content.'</code>'."\n";
         }
         
         return array("name" => "textratio","score" => $this->score,"total_score" => self::TOTAL_SCORE,"result" => $this->result);

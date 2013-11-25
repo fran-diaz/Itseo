@@ -16,7 +16,8 @@ class Robots implements TestInterface{
     public $result = "";
     public $type = "external_test";
     
-    public function parseRobots($robots_file){
+    public function parseRobots($robots_file)
+    {
         $valid_commands = array("User-agent","Disallow");
         $custom_commands = array("Allow","Crawl-delay","Sitemap","Host");
         $result = "";
