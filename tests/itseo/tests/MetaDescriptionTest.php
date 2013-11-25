@@ -29,7 +29,7 @@ class MetaDescriptionTest extends \PHPUnit_Framework_TestCase
         
         $result = $this->object->extractMetaDescription($dummy_dom);
         
-        $this->assertStringMatchesFormat("%a",$result);
+        $this->assertStringMatchesFormat("%A",$result);
     }
 
     /**

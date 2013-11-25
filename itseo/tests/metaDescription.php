@@ -19,21 +19,22 @@ class MetaDescription implements TestInterface{
     public static function extractMetaDescription($target)
     {
         $DOM = $target;
+        $description = "";
         $meta_elements = $DOM->getElementsByTagName('meta');
         foreach ($meta_elements as $meta) {
             if(!$meta->getAttribute('name'))continue;
             elseif($meta->getAttribute('name') == "description"){
-                if(!$meta->getAttribute('content'))return false;
-                return $meta->getAttribute('content');
+                if(!$meta->getAttribute('content'))continue;
+                $description .= $meta->getAttribute('content');
             }
         }
-        return false;
+        return $description;
     }
     
     public function test($target)
     {
         $metadesc = self::extractMetaDescription($target);
-        if($metadesc){
+        if(strlen($metadesc) >= 1){
             $this->result .='<p><span class="result ok">OK</span>The meta description is present: <pre>'.$metadesc.'</pre></p>'."\n";$this->score += 1;
 
             $metadesc_length = strlen($metadesc);

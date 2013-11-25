@@ -19,38 +19,36 @@ class MetaTitle implements TestInterface{
     public static function extractMetaTitle($target)
     {
         $DOM = $target;
+        $title = "";
         $meta_elements = $DOM->getElementsByTagName('meta');
         foreach ($meta_elements as $meta) {
             if(!$meta->getAttribute('name'))continue;
             elseif($meta->getAttribute('name') == "title"){
-                if(!$meta->getAttribute('content'))return false;
-                return $meta->getAttribute('content');
+                if(!$meta->getAttribute('content'))continue;
+                $title .= $meta->getAttribute('content');
             }
         }
-        return false;
+        return $title;
     }
 
-    public static function getTitle($target)
+    public static function extractTitle($target)
     {
         $DOM = $target;
+        $Mtitle = "";
         $title_element = $DOM->getElementsByTagName('title');
 
         foreach ($title_element as $title) {
-            $title = $title->textContent;
-        }
-        
-        if(!$title_element || $title_element->length == 0){
-            return false;
+            $Mtitle .= $title->textContent;
         }
 
-        return $title;
+        return $Mtitle;
     }
     
     public function test($target)
     {
-        $title = self::getTitle($target);
+        $title = self::extractTitle($target);
         $metatitle = self::extractMetaTitle($target);
-        if($metatitle){
+        if(strlen($metatitle) >= 1){
             $this->result .='<p><span class="result ok">OK</span>The meta title is present: <pre>'.$metatitle.'</pre></p>'."\n";$this->score += 1;
 
             $metatitle_length = explode(' ', $metatitle);
