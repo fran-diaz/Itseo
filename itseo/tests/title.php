@@ -38,11 +38,11 @@ class Title implements TestInterface{
         if($title){
             $this->result .='<p><span class="result ok">OK</span>The title is present: <pre>'.$title.'</pre></p>'."\n";$this->score += 1;
             
-            $title_length = explode(" ",$title);
-            if(count($title_length) == 9){
+            $title_length = str_word_count($title);
+            if($title_length == 9){
                 $this->result .='<p><span class="result ok">OK</span>Title length is good: <pre>9 words</pre></p>'."\n";$this->score += 1;
             }else{
-                $this->result .='<p><span class="result warn">WARN</span>Title length should be 9 words, detected: <pre>'.count($title_length).' words</pre></p>'."\n";
+                $this->result .='<p><span class="result warn">WARN</span>Title length should be 9 words, detected: <pre>'.$title_length.' words</pre></p>'."\n";
             }
             
             $title_length = strlen($title);

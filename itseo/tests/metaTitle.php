@@ -51,9 +51,9 @@ class MetaTitle implements TestInterface{
         if(strlen($metatitle) >= 1){
             $this->result .='<p><span class="result ok">OK</span>The meta title is present: <pre>'.$metatitle.'</pre></p>'."\n";$this->score += 1;
 
-            $metatitle_length = explode(' ', $metatitle);
-            if(count($metatitle_length) == 9){$this->result .='<p><span class="result ok">OK</span>Meta title length is good: <pre>9 words</pre></p>'."\n";$this->score += 1;}
-            else{$this->result .='<p><span class="result warn">WARN</span>Meta title length should be 9 words, detected: <pre>'.count($metatitle_length).' words</pre></p>'."\n";}
+            $metatitle_length = str_word_count($metatitle);
+            if($metatitle_length == 9){$this->result .='<p><span class="result ok">OK</span>Meta title length is good: <pre>9 words</pre></p>'."\n";$this->score += 1;}
+            else{$this->result .='<p><span class="result warn">WARN</span>Meta title length should be 9 words, detected: <pre>'.$metatitle_length.' words</pre></p>'."\n";}
             
             $metatitle_length = strlen($metatitle);
             if($metatitle_length >= 60 && $metatitle_length <= 70){$this->result .='<p><span class="result ok">OK</span>Meta title length is good: <pre>65 characters</pre></p>'."\n";$this->score += 1;}
