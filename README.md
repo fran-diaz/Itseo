@@ -26,6 +26,7 @@ Current tests that Itseo includes
 * Text ratio check (almost 25% / total page code).
 * Url size.
 * WWW and non-WWW redirected to the same page.
+* Humans.txt file present.
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/steelpsg/itseo/trend.png)](https://bitdeli.com/free "Bitdeli Badge")

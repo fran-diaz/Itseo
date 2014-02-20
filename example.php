@@ -33,5 +33,6 @@ $itseo->makeTest('Title');
 $itseo->makeTest('TextRatio');
 $itseo->makeTest('Sitemap');
 $itseo->makeTest('Robots');
+$itseo->makeTest('Humans');
 
 var_dump($itseo->tests);
