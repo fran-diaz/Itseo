@@ -40,14 +40,14 @@ class Title implements TestInterface{
             
             $title_length = str_word_count($title);
             if($title_length == 9){
-                $this->result .='<p><span class="result ok">OK</span>Title length is good: <pre>9 words</pre></p>'."\n";$this->score += 1;
+                $this->result .='<p><span class="result ok">OK</span>Title length is good: <pre>'.$title_length.' words</pre></p>'."\n";$this->score += 1;
             }else{
                 $this->result .='<p><span class="result warn">WARN</span>Title length should be 9 words, detected: <pre>'.$title_length.' words</pre></p>'."\n";
             }
             
             $title_length = strlen($title);
             if($title_length >= 60 && $title_length <= 70){
-                $this->result .='<p><span class="result ok">OK</span>Title length is good: <pre>65 characters</pre></p>'."\n";$this->score += 1;
+                $this->result .='<p><span class="result ok">OK</span>Title length is good: <pre>'.$title_length.' characters</pre></p>'."\n";$this->score += 1;
             }else{
                 $this->result .='<p><span class="result warn">WARN</span>Title length should between 60 and 70 characters aprox. (included spaces), detected: <pre>'.$title_length.' characters</pre></p>'."\n";
             }
